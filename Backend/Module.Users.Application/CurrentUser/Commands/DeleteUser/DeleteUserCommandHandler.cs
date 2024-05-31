@@ -19,7 +19,6 @@ namespace Module.Users.Application.CurrentUser.Commands.DeleteUser
             _userAccessor = userAccessor;
         }
 
-        //TODO: add cascade delete
         public async Task Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Users

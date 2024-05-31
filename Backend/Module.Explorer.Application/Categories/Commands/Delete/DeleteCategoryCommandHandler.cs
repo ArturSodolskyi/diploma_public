@@ -38,7 +38,6 @@ namespace Module.Explorer.Application.Categories.Commands.Delete
             await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
-        //TODO: reuse already created delete methods for entities (+ it's throwing an error)
         private async Task RemoveChildrens(int id, CancellationToken cancellationToken)
         {
             var childrens = await _dbContext.Categories

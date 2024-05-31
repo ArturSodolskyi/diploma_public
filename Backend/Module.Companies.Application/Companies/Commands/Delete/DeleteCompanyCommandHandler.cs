@@ -37,16 +37,12 @@ namespace Module.Companies.Application.Companies.Commands.Delete
                 CompanyId = request.Id
             }, cancellationToken);
 
-            //TODO: delete other entities of the company
-
-            //TODO: why cascade isn't working
             var userCompanies = await _dbContext.UserCompanies
                 .Where(x => x.CompanyId == request.Id)
                 .AsNoTracking()
                 .ToArrayAsync(cancellationToken);
             _dbContext.UserCompanies.RemoveRange(userCompanies);
 
-            //TODO: why cascade isn't working
             var userCompanyInvitations = await _dbContext.UserCompanyInvitations
                 .Where(x => x.CompanyId == request.Id)
                 .AsNoTracking()

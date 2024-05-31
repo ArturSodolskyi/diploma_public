@@ -7,7 +7,6 @@ namespace Module.Users.Persistence.Common.Extensions
 {
     public static class ModelBuilderExtensions
     {
-        //TODO: delete when finish and seed manually
         public static void SeedAdmins(this ModelBuilder builder)
         {
             var hasher = new PasswordHasher<User>();

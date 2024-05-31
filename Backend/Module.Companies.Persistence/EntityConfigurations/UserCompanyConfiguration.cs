@@ -14,7 +14,7 @@ namespace Module.Companies.Persistence.EntityConfigurations
                 .WithMany(x => x.UserCompanies)
                 .HasForeignKey(x => x.CompanyId)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict); //TODO: why?
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.CompanyRole)
                 .WithMany(x => x.UserCompanies)

@@ -14,7 +14,7 @@ namespace Module.Companies.Persistence.EntityConfigurations
                 .WithMany(x => x.UserCompanyInvitations)
                 .HasForeignKey(x => x.CompanyId)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict); //TODO: why?
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

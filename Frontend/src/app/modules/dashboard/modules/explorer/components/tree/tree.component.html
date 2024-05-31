@@ -1,6 +1,6 @@
-<div class="actions">
+<div class="actions" (click)="deselect()" [routerLink]="'/' + ROUTES_MAP.Explorer">
   <b>Explorer:</b>
-  <div *ngIf="companyId" class="d-flex">
+  <div *ngIf="companyId" class="d-flex" (click)="$event.stopPropagation()">
     <ng-container *ngIf="permissionService.canCRUD()">
       <button mat-button [disabled]="selected?.type === NodeType.Job" [matMenuTriggerFor]="addMenu">
         <mat-icon inline>add</mat-icon>

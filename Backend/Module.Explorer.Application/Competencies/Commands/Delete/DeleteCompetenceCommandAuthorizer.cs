@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Module.Companies.Contracts.Common;
-using Module.Companies.Contracts.UserCompanies.Queries.IsInCompanyRoleByJob;
+using Module.Companies.Contracts.UserCompanies.Queries.IsInCompanyRoleByCompetence;
 using Module.Explorer.Contracts.Competencies.Commands.Delete;
 using Shared.Accessors;
 using Shared.Exceptions;
@@ -26,9 +26,9 @@ namespace Module.Explorer.Application.Competencies.Commands.Delete
                 return;
             }
 
-            var isAdministrator = await _mediator.Send(new IsInCompanyRoleByJobQuery
+            var isAdministrator = await _mediator.Send(new IsInCompanyRoleByCompetenceQuery
             {
-                JobId = request.Id,
+                CompetenceId = request.Id,
                 UserId = _userAccessor.UserId,
                 Role = CompanyRoleEnum.Administrator
             }, cancellationToken);

@@ -17,9 +17,7 @@ namespace Module.Explorer.Application.Competencies.Commands.Delete
 
         public async Task Handle(DeleteCompetenceCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Competencies
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            var entity = await _dbContext.Competencies.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (entity is null)
             {
                 throw new NotFoundException(nameof(Competence), request.Id);

@@ -1,7 +1,6 @@
-import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, catchError, of, tap, throwError } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AUTH_ROUTES_MAP, DASHBOARD_ROUTES_MAP } from '../constants/routes-map.const';
 import { Token } from '../enums/token.enum';
 import { LoginRequestModel } from '../models/wep-api/domain/auth/loginRequestModel';
@@ -19,14 +18,7 @@ export class AuthService {
 
   public login(model: LoginRequestModel): Observable<TokenModel | null> {
     return this.authService.login(model)
-      .pipe(
-        tap(x => this.handleLoginResponse(x)),
-        catchError(error =>
-          error instanceof HttpErrorResponse && error.status === HttpStatusCode.BadRequest
-            ? of(null)
-            : throwError(() => error)
-        )
-      );
+      .pipe(tap(x => this.handleLoginResponse(x)));
   }
 
   public register(model: RegisterRequestModel): Observable<TokenModel> {
@@ -55,7 +47,11 @@ export class AuthService {
     };
   }
 
-  private handleLoginResponse(model: TokenModel): void {
+  private handleLoginResponse(model: TokenModel | null): void {
+    if (model == null) {
+      return;
+    }
+
     this.setTokens(model);
     this.router.navigate([DASHBOARD_ROUTES_MAP.Explorer]);
   }

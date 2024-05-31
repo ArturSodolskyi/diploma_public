@@ -75,12 +75,7 @@ public class AuthController : BaseController
     public async Task<IActionResult> Login([FromBody] LoginRequestModel request)
     {
         _signInManager.AuthenticationScheme = IdentityConstants.BearerScheme;
-        var result = await _signInManager.PasswordSignInAsync(request.Email, request.Password, false, lockoutOnFailure: true);
-        if (!result.Succeeded)
-        {
-            return Unauthorized();
-        }
-
+        await _signInManager.PasswordSignInAsync(request.Email, request.Password, false, lockoutOnFailure: true);
         return Empty;
     }
 

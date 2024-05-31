@@ -1,15 +1,14 @@
-import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { DASHBOARD_ROUTES_MAP } from '../constants/routes-map.const';
+import { RoleService } from '../services/role.service';
 
-//TODO: not working
-// this.userService.reload();
-// return this.userService.user$
-//   .pipe(switchMap(_ => of(this.roleService.isAdministrator())));
-// if (this.roleService.isAdministrator()) {
-//   return true;
-// }
-
-// // this.router.navigate([ROUTES_MAP.Dashboard]);
-// return false;
 export const adminGuard: CanActivateFn = () => {
-  return true;
+  let isAdministrator = inject(RoleService).isAdministrator()
+
+  if (!isAdministrator) {
+    inject(Router).navigate([DASHBOARD_ROUTES_MAP.Explorer]);
+  }
+
+  return isAdministrator;
 };

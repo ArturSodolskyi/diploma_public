@@ -2,6 +2,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
@@ -15,7 +16,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom([
       BrowserModule,
       HttpClientModule,
-      MatDialogModule
+      MatDialogModule,
+      MatSnackBarModule
     ]),
     {
       provide: HTTP_INTERCEPTORS,

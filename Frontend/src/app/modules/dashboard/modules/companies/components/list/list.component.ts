@@ -8,7 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable, filter, map, switchMap, tap } from 'rxjs';
 import { DynamicTextInputComponent } from 'src/app/modules/shared/components/inputs/dynamic-text-input/dynamic-text-input.component';
 import { DASHBOARD_ROUTES_MAP } from 'src/app/modules/shared/constants/routes-map.const';
@@ -47,7 +47,8 @@ export class ListComponent implements OnInit {
     private userApiService: UserApiService,
     private dataService: DataService,
     private dialogService: DialogService,
-    private destroyRef: DestroyRef) {
+    private destroyRef: DestroyRef,
+    private router: Router) {
     this.updateElementsObservable();
   }
 
@@ -161,6 +162,7 @@ export class ListComponent implements OnInit {
       .subscribe(x => {
         if (x) {
           this.delete();
+          this.router.navigate([DASHBOARD_ROUTES_MAP.Companies]);
         }
       });
   }

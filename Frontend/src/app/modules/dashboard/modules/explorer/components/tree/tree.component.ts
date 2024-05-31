@@ -9,10 +9,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable, filter, take } from 'rxjs';
 import { DynamicTextInputComponent } from 'src/app/modules/shared/components/inputs/dynamic-text-input/dynamic-text-input.component';
-import { ROUTES_MAP } from 'src/app/modules/shared/constants/routes-map.const';
+import { DASHBOARD_ROUTES_MAP, ROUTES_MAP } from 'src/app/modules/shared/constants/routes-map.const';
 import { TreeViewModel } from 'src/app/modules/shared/models/wep-api/dashboard/explorers/treeViewModel';
 import { CreateCategoryRequestModel } from 'src/app/modules/shared/models/wep-api/domain/categories/createCategoryRequestModel';
 import { UpdateCategoryRequestModel } from 'src/app/modules/shared/models/wep-api/domain/categories/updateCategoryRequestModel';
@@ -101,7 +101,8 @@ export class TreeComponent implements OnInit {
     protected permissionService: PermissionService,
     private dialogService: DialogService,
     private dataService: DataService,
-    private destroyRef: DestroyRef) {
+    private destroyRef: DestroyRef,
+    private router: Router) {
 
   }
 
@@ -238,6 +239,7 @@ export class TreeComponent implements OnInit {
       .subscribe(x => {
         if (x) {
           this.delete();
+          this.router.navigate([DASHBOARD_ROUTES_MAP.Explorer]);
         }
       });
   }

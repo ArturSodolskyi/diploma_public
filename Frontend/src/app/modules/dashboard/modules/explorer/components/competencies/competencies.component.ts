@@ -7,10 +7,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { filter, take } from 'rxjs';
 import { DynamicTextInputComponent } from 'src/app/modules/shared/components/inputs/dynamic-text-input/dynamic-text-input.component';
-import { PARAMS_MAP } from 'src/app/modules/shared/constants/routes-map.const';
+import { DASHBOARD_ROUTES_MAP, PARAMS_MAP } from 'src/app/modules/shared/constants/routes-map.const';
 import { CompetenceViewModel } from 'src/app/modules/shared/models/wep-api/dashboard/explorers/competenceViewModel';
 import { CreateCompetenceRequestModel } from 'src/app/modules/shared/models/wep-api/domain/competencies/createCompetenceRequestModel';
 import { UpdateCompetenceRequestModel } from 'src/app/modules/shared/models/wep-api/domain/competencies/updateCompetenceRequestModel';
@@ -42,7 +42,8 @@ export class CompetenciesComponent implements OnInit {
     private route: ActivatedRoute,
     private dialogService: DialogService,
     private dataService: DataService,
-    private destroyRef: DestroyRef) {
+    private destroyRef: DestroyRef,
+    private router: Router) {
 
   }
 
@@ -118,6 +119,7 @@ export class CompetenciesComponent implements OnInit {
       .subscribe(x => {
         if (x) {
           this.delete();
+          this.router.navigate([DASHBOARD_ROUTES_MAP.Explorer, this.jobId]);
         }
       });
   }

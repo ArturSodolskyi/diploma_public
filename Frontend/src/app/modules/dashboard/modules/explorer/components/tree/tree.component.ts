@@ -24,7 +24,6 @@ import { UserService } from 'src/app/modules/shared/services/user.service';
 import { ExplorerService } from 'src/app/modules/shared/services/web-api/dashboard/explorer.service';
 import { CategoryService } from 'src/app/modules/shared/services/web-api/domain/category.service';
 import { JobService } from 'src/app/modules/shared/services/web-api/domain/job.service';
-import { AutofocusDirective } from '../../../../../shared/directives/autofocus.directive';
 import { FlatNode } from '../../models/tree/flatNode';
 import { Node } from '../../models/tree/node';
 import { NodeType } from '../../models/tree/nodeType';
@@ -35,7 +34,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss'],
   standalone: true,
-  imports: [NgIf, MatButtonModule, MatMenuModule, MatIconModule, MatDividerModule, RouterLink, MatTreeModule, NgTemplateOutlet, NgFor, MatInputModule, AutofocusDirective, DynamicTextInputComponent]
+  imports: [NgIf, MatButtonModule, MatMenuModule, MatIconModule, MatDividerModule, RouterLink, MatTreeModule, NgTemplateOutlet, NgFor, MatInputModule, DynamicTextInputComponent]
 })
 export class TreeComponent implements OnInit {
   private nodeMap = new Map<Node, FlatNode>();

@@ -18,7 +18,6 @@ import { DialogService } from 'src/app/modules/shared/services/dialog.service';
 import { PermissionService } from 'src/app/modules/shared/services/permission.service';
 import { ExplorerService } from 'src/app/modules/shared/services/web-api/dashboard/explorer.service';
 import { CompetenceService } from 'src/app/modules/shared/services/web-api/domain/competence.service';
-import { AutofocusDirective } from '../../../../../shared/directives/autofocus.directive';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -26,7 +25,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './competencies.component.html',
   styleUrls: ['./competencies.component.scss'],
   standalone: true,
-  imports: [NgIf, MatButtonModule, MatIconModule, MatDividerModule, MatListModule, NgFor, RouterLink, NgTemplateOutlet, MatInputModule, AutofocusDirective, DynamicTextInputComponent]
+  imports: [NgIf, MatButtonModule, MatIconModule, MatDividerModule, MatListModule, NgFor, RouterLink, NgTemplateOutlet, MatInputModule, DynamicTextInputComponent]
 })
 export class CompetenciesComponent implements OnInit {
   protected elements: CompetenceViewModel[] = [];

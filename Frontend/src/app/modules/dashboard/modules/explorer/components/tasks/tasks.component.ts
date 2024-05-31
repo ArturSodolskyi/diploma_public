@@ -18,7 +18,6 @@ import { DialogService } from 'src/app/modules/shared/services/dialog.service';
 import { PermissionService } from 'src/app/modules/shared/services/permission.service';
 import { ExplorerService } from 'src/app/modules/shared/services/web-api/dashboard/explorer.service';
 import { TaskService } from 'src/app/modules/shared/services/web-api/domain/task.service';
-import { AutofocusDirective } from '../../../../../shared/directives/autofocus.directive';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -26,7 +25,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss'],
   standalone: true,
-  imports: [MatExpansionModule, NgFor, NgTemplateOutlet, NgIf, MatButtonModule, MatIconModule, MatInputModule, AutofocusDirective, MatFormFieldModule, DynamicTextInputComponent]
+  imports: [MatExpansionModule, NgFor, NgTemplateOutlet, NgIf, MatButtonModule, MatIconModule, MatInputModule, MatFormFieldModule, DynamicTextInputComponent]
 })
 export class TasksComponent implements OnInit {
   protected elements: TaskViewModel[] = [];

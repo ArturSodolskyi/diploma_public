@@ -19,7 +19,6 @@ import { UserService } from 'src/app/modules/shared/services/user.service';
 import { CompaniesService } from 'src/app/modules/shared/services/web-api/dashboard/companies.service';
 import { CompanyService } from 'src/app/modules/shared/services/web-api/domain/company.service';
 import { UserService as UserApiService } from 'src/app/modules/shared/services/web-api/domain/user.service';
-import { AutofocusDirective } from '../../../../../shared/directives/autofocus.directive';
 import { CompanyListModel } from '../../models/companyListModel';
 import { DataService } from '../../services/data.service';
 import { InvitationsComponent } from './components/invitations/invitations.component';
@@ -29,7 +28,7 @@ import { InvitationsComponent } from './components/invitations/invitations.compo
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatDividerModule, MatListModule, NgFor, MatExpansionModule, NgIf, RouterLink, NgTemplateOutlet, InvitationsComponent, MatInputModule, AutofocusDirective, AsyncPipe, DynamicTextInputComponent]
+  imports: [MatButtonModule, MatIconModule, MatDividerModule, MatListModule, NgFor, MatExpansionModule, NgIf, RouterLink, NgTemplateOutlet, InvitationsComponent, MatInputModule, AsyncPipe, DynamicTextInputComponent]
 })
 export class ListComponent implements OnInit {
   private elements: CompanyListModel[] = [];

@@ -54,7 +54,6 @@ export class TreeComponent implements OnInit {
     flatNode.level = level;
     flatNode.icon = this.getNodeIcon(node.type);
     flatNode.expandable = !!node.children?.length;
-    // TODO: use selections as in the companies list for editable and new
     flatNode.new = node.name === '';
     flatNode.editable = false;
 
@@ -133,7 +132,6 @@ export class TreeComponent implements OnInit {
       });
   }
 
-  //TODO: refactor
   private loadData(): void {
     this.explorerService.getTree()
       .pipe(take(1))
@@ -184,7 +182,6 @@ export class TreeComponent implements OnInit {
 
   protected setSelectedJobById(id: number): void {
     let element;
-    //TODO: how to break?
     this.nodeMap.forEach(x => {
       if (x.id == id && x.type == NodeType.Job) {
         element = x;
@@ -193,7 +190,6 @@ export class TreeComponent implements OnInit {
 
     if (element) {
       this.select(element);
-      //TODO: refactor
       this.treeControl.expandAll();
     }
   }
@@ -247,7 +243,6 @@ export class TreeComponent implements OnInit {
       });
   }
 
-  //TODO: add delete confirmation dialog (not only here)
   private delete(node: FlatNode | undefined = undefined, onlyLocally = false): void {
     if (!node) {
       node = this.selected;
@@ -292,7 +287,6 @@ export class TreeComponent implements OnInit {
       : this.jobService.delete(node.id);
   }
 
-  //TODO: if value didn't changed it's still sends request to the API, fix it (not only in this component)
   protected applyChanges(value: string, flatNode: FlatNode): void {
     if (flatNode.new) {
       if (!value) {
@@ -377,7 +371,6 @@ export class TreeComponent implements OnInit {
 
   private updateDataSource(): void {
     this.flatNodeMap.clear();
-    //TODO: add order by type and then name
     let data = this.dataSource.data;
     this.dataSource.data = data;
   }

@@ -6,7 +6,6 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
-//TODO: refactor?
 export class RoleService {
   constructor(private userService: UserService) {
 

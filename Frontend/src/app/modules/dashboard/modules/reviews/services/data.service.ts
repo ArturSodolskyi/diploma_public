@@ -27,7 +27,6 @@ export class DataService {
       });
   }
 
-  //TODO: refactor
   public get review() {
     return this.reviews$.value.find(x => x.id == this.reviewId$.value);
   }

@@ -25,9 +25,6 @@
           {{item.header}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <!-- TODO: strange behavior with routerLink, [class.selected] works after second click -->
-      <!-- TODO: add direct link access check because right now it's possible to open any company by id in the url -->
-      <!-- TODO: isCreatedByCurrentUser check is not valid, because we have CompanyEditors -->
       <mat-list-item *ngFor="let element of item.elements" [class.selected]="selection.isSelected(element)"
         [routerLink]="element.canOpen ? [element.id] : null" (click)="select(element)">
         <div class="d-flex justify-content-between">

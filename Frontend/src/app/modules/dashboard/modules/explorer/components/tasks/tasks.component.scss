@@ -1,10 +1,9 @@
-//TODO: create a shared class
 :host {
-    ::ng-deep button.mdc-button {
-        min-width: 0;
-    }
+  ::ng-deep button.mdc-button {
+    min-width: 0;
+  }
 
-    ::ng-deep mat-icon.mat-icon {
-        margin-right: 0;
-    }
+  ::ng-deep mat-icon.mat-icon {
+    margin-right: 0;
+  }
 }

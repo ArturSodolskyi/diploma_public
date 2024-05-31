@@ -18,10 +18,8 @@
   </div>
 </div>
 <mat-divider></mat-divider>
-<!-- TODO: deselect if we have a lot of elements, it's impossible to deselect -->
 <div class="body" (click)="deselect()" [routerLink]="'/' + ROUTES_MAP.Explorer">
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-    <!-- TODO: add check if node has an id for routerLink, because it opens newly created jobs wihout name -->
     <mat-tree-node class="pe-2" [class.selected]="selection.isSelected(node)" *matTreeNodeDef="let node"
       matTreeNodePadding matTreeNodeToggle [routerLink]="node.type === NodeType.Job ? [node.id] : null"
       (click)="select(node)">

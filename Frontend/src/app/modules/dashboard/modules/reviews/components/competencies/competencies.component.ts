@@ -34,7 +34,7 @@ export class CompetenciesComponent implements OnInit {
     this.route.params
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(params => {
-        this.reviewId = params[PARAMS_MAP.Id]; //TODO: ?
+        this.reviewId = params[PARAMS_MAP.Id];
         this.loadData();
       });
   }

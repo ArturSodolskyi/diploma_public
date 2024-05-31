@@ -4,7 +4,6 @@ import { RoleService } from './role.service';
 @Injectable({
   providedIn: 'root'
 })
-//TODO: refactor?
 export class PermissionService {
   constructor(private roleService: RoleService) { }
 

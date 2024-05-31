@@ -1,28 +1,24 @@
 <mat-drawer-container autosize>
-    <mat-drawer class="pt-1 pb-1" mode="side" opened>
-        <div class="h-100 d-flex flex-column justify-content-between">
-            <div class="d-flex flex-column">
-                <!-- TODO: how to do it without such costile? -->
-                <div *ngFor="let item of navigationItems">
-                    <ng-container *ngIf="item.show">
-                        <button [hidden]="rla.isActive" mat-icon-button [matTooltip]="item.tooltip"
-                            matTooltipPosition="after" [routerLink]="item.link" routerLinkActive
-                            #rla="routerLinkActive">
-                            <mat-icon>{{item.icon}}</mat-icon>
-                        </button>
-                        <button *ngIf="rla.isActive" mat-icon-button [matTooltip]="item.tooltip"
-                            matTooltipPosition="after" class="active-link"
-                            (click)="navigationService.onLinkClick$.next()">
-                            <mat-icon>{{item.icon}}</mat-icon>
-                        </button>
-                    </ng-container>
-                </div>
-                <!--  -->
-            </div>
-            <div>
-                <app-account-button></app-account-button>
-            </div>
+  <mat-drawer class="pt-1 pb-1" mode="side" opened>
+    <div class="h-100 d-flex flex-column justify-content-between">
+      <div class="d-flex flex-column">
+        <div *ngFor="let item of navigationItems">
+          <ng-container *ngIf="item.show">
+            <button [hidden]="rla.isActive" mat-icon-button [matTooltip]="item.tooltip" matTooltipPosition="after"
+              [routerLink]="item.link" routerLinkActive #rla="routerLinkActive">
+              <mat-icon>{{item.icon}}</mat-icon>
+            </button>
+            <button *ngIf="rla.isActive" mat-icon-button [matTooltip]="item.tooltip" matTooltipPosition="after"
+              class="active-link" (click)="navigationService.onLinkClick$.next()">
+              <mat-icon>{{item.icon}}</mat-icon>
+            </button>
+          </ng-container>
         </div>
-    </mat-drawer>
-    <router-outlet></router-outlet>
+      </div>
+      <div>
+        <app-account-button></app-account-button>
+      </div>
+    </div>
+  </mat-drawer>
+  <router-outlet></router-outlet>
 </mat-drawer-container>

@@ -49,7 +49,6 @@ export class TasksComponent implements OnInit {
         this.loadData();
       });
 
-    //TODO: refactor
     this.dataService.reviews$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(_ => {

@@ -1,23 +1,22 @@
 <b class="header">Reviews:</b>
 <mat-divider></mat-divider>
 <mat-selection-list class="body" [multiple]="false">
-    <mat-accordion *ngFor="let item of elements$ | async" multi>
-        <mat-expansion-panel *ngIf="item.elements.length > 0" expanded>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{item.header}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <!-- TODO: strange behavior with routerLink, [class.selected] works after second click -->
-            <mat-list-item *ngFor="let element of item.elements" [class.selected]="selection.isSelected(element)"
-                [routerLink]="[element.id]" (click)="select(element)">
-                <div class="d-flex justify-content-between gap-4">
-                    {{element.startDate | date:'mediumDate'}}
-                    <mat-icon *ngIf="element.endDate == undefined">
-                        whatshot
-                    </mat-icon>
-                </div>
-            </mat-list-item>
-        </mat-expansion-panel>
-    </mat-accordion>
+  <mat-accordion *ngFor="let item of elements$ | async" multi>
+    <mat-expansion-panel *ngIf="item.elements.length > 0" expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.header}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list-item *ngFor="let element of item.elements" [class.selected]="selection.isSelected(element)"
+        [routerLink]="[element.id]" (click)="select(element)">
+        <div class="d-flex justify-content-between gap-4">
+          {{element.startDate | date:'mediumDate'}}
+          <mat-icon *ngIf="element.endDate == undefined">
+            whatshot
+          </mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-selection-list>

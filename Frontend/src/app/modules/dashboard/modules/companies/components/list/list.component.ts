@@ -33,11 +33,9 @@ import { InvitationsComponent } from './components/invitations/invitations.compo
 })
 export class ListComponent implements OnInit {
   private elements: CompanyListModel[] = [];
-  //TODO: create new model for { header: string; elements: CompanyViewModel[] }?
   protected elements$ = new BehaviorSubject<{ header: string; elements: CompanyListModel[]; }[]>([]);
 
   protected selection = new SelectionModel<CompanyListModel>(false);
-  //TODO: set primarySelection when user company value will be stored somewhere
   protected primarySelection = new SelectionModel<CompanyListModel>(false);
   protected addSelection = new SelectionModel<CompanyListModel>(false);
   protected editSelection = new SelectionModel<CompanyListModel>(false);
@@ -168,7 +166,6 @@ export class ListComponent implements OnInit {
       });
   }
 
-  //TODO: refactor
   private delete(item: CompanyListModel | undefined = undefined, onlyLocaly = false): void {
     if (!item) {
       item = this.selected;
@@ -200,7 +197,7 @@ export class ListComponent implements OnInit {
   protected applyChanges(value: string, item: CompanyListModel) {
     if (this.addSelection.isSelected(item)) {
       if (!value) {
-        this.delete(item, true); // TODO: delete only locally add parameter
+        this.delete(item, true);
         return;
       }
 

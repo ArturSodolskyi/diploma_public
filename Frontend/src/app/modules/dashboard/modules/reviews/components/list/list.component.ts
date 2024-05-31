@@ -22,7 +22,6 @@ import { DataService } from '../../services/data.service';
   imports: [MatDividerModule, MatListModule, NgFor, MatExpansionModule, NgIf, RouterLink, MatIconModule, AsyncPipe, DatePipe]
 })
 export class ListComponent implements OnInit {
-  //TODO: create new model for { header: string; elements: ReviewViewModel[] }?
   protected elements$ = new BehaviorSubject<{ header: string; elements: ReviewViewModel[]; }[]>([]);
 
   protected selection = new SelectionModel<ReviewViewModel>(false);
@@ -82,7 +81,6 @@ export class ListComponent implements OnInit {
 
   //#region general
 
-  //TODO: add check that user cannot be reviewer and reviewee in the same time
   private updateElementsObservable(): void {
     // @ts-ignore
     this.elements.sort((a, b) => b.inProgress - a.inProgress);

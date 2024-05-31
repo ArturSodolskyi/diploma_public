@@ -21,14 +21,12 @@
       [ngTemplateOutletContext]="{element:element}">
     </ng-container>
   </mat-expansion-panel>
-  <!-- TODO: remove button rounding on borders -->
   <button *ngIf="permissionService.canCRUD()" class="w-100" mat-raised-button (click)="add()">
     Add new task
   </button>
 </mat-accordion>
 
 <ng-template #editableText let-element='element'>
-  <!-- TODO: create a separate component? -->
   <mat-form-field class="w-100" appearance="fill">
     <textarea #textarea [value]="element.text" matInput></textarea>
   </mat-form-field>

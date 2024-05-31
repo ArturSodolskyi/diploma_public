@@ -26,7 +26,7 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-list-item *ngFor="let element of item.elements" [class.selected]="selection.isSelected(element)"
-        [routerLink]="element.canOpen ? [element.id] : null" (click)="select(element)">
+        [routerLink]="element.canOpen ? [element.id] : '/' + DASHBOARD_ROUTES_MAP.Companies" (click)="select(element)">
         <div class="d-flex justify-content-between">
           <app-dynamic-text-input [value]="element.name"
             [showInput]="addSelection.isSelected(element) || editSelection.isSelected(element)"

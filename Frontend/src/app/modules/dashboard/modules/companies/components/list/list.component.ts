@@ -11,7 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable, filter, map, switchMap, tap } from 'rxjs';
 import { DynamicTextInputComponent } from 'src/app/modules/shared/components/inputs/dynamic-text-input/dynamic-text-input.component';
-import { ROUTES_MAP } from 'src/app/modules/shared/constants/routes-map.const';
+import { DASHBOARD_ROUTES_MAP } from 'src/app/modules/shared/constants/routes-map.const';
 import { CompanyRole } from 'src/app/modules/shared/enums/company-role.enum';
 import { CompanyViewModel } from 'src/app/modules/shared/models/wep-api/dashboard/companies/companyViewModel';
 import { DialogService } from 'src/app/modules/shared/services/dialog.service';
@@ -39,7 +39,7 @@ export class ListComponent implements OnInit {
   protected addSelection = new SelectionModel<CompanyListModel>(false);
   protected editSelection = new SelectionModel<CompanyListModel>(false);
 
-  protected ROUTES_MAP = ROUTES_MAP;
+  protected DASHBOARD_ROUTES_MAP = DASHBOARD_ROUTES_MAP;
 
   constructor(private companiesService: CompaniesService,
     private companyService: CompanyService,

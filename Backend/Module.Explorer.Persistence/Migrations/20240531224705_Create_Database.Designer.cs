@@ -12,7 +12,7 @@ using Module.Explorer.Persistence;
 namespace Module.Explorer.Persistence.Migrations
 {
     [DbContext(typeof(ExplorerDbContext))]
-    [Migration("20240526115735_Create_Database")]
+    [Migration("20240531224705_Create_Database")]
     partial class Create_Database
     {
         /// <inheritdoc />
@@ -21,7 +21,7 @@ namespace Module.Explorer.Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("explorer")
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

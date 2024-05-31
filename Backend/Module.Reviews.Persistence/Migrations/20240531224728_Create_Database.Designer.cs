@@ -12,7 +12,7 @@ using Module.Reviews.Persistence;
 namespace Module.Reviews.Persistence.Migrations
 {
     [DbContext(typeof(ReviewsDbContext))]
-    [Migration("20240526115850_Create_Database")]
+    [Migration("20240531224728_Create_Database")]
     partial class Create_Database
     {
         /// <inheritdoc />
@@ -21,7 +21,7 @@ namespace Module.Reviews.Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("reviews")
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

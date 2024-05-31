@@ -18,7 +18,7 @@ namespace Module.Users.Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("users")
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -159,11 +159,9 @@ namespace Module.Users.Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -216,7 +214,7 @@ namespace Module.Users.Persistence.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a9aec2bb-4fb6-4d42-9d9d-fcff613ae64e",
+                            ConcurrencyStamp = "acd27541-6bb2-489b-a222-a7735baa45a4",
                             Email = "next.tmz.mit@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Artur",
@@ -224,9 +222,9 @@ namespace Module.Users.Persistence.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "NEXT.TMZ.MIT@GMAIL.COM",
                             NormalizedUserName = "NEXT.TMZ.MIT@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ4wlH8efc1yimsOfG6Wi7YYgpbUXBcjT6rXIx2G6zQZ7TvuK7wjajJtcWnFaPdyBQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFWuz0ahOSyNfT/+DoYopWYC/XnakbF7lcnEuqissSMrKssHlFZOm1Z9QGwNJQM76w==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "e781747e-ffef-4023-bb8a-9bbc490ed516",
+                            SecurityStamp = "008a6908-4be3-4eae-8bb1-b376cbec0553",
                             TwoFactorEnabled = false,
                             UserName = "next.tmz.mit@gmail.com"
                         });

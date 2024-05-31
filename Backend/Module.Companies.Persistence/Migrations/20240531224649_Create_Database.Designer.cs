@@ -11,7 +11,7 @@ using Module.Companies.Persistence;
 namespace Module.Companies.Persistence.Migrations
 {
     [DbContext(typeof(CompaniesDbContext))]
-    [Migration("20240526115837_Create_Database")]
+    [Migration("20240531224649_Create_Database")]
     partial class Create_Database
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace Module.Companies.Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("companies")
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

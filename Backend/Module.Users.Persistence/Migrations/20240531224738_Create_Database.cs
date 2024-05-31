@@ -39,8 +39,8 @@ namespace Module.Users.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompanyId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -193,7 +193,7 @@ namespace Module.Users.Persistence.Migrations
                 schema: "users",
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CompanyId", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1, 0, null, "a9aec2bb-4fb6-4d42-9d9d-fcff613ae64e", "next.tmz.mit@gmail.com", true, "Artur", "Sodolskyi", true, null, "NEXT.TMZ.MIT@GMAIL.COM", "NEXT.TMZ.MIT@GMAIL.COM", "AQAAAAIAAYagAAAAEJ4wlH8efc1yimsOfG6Wi7YYgpbUXBcjT6rXIx2G6zQZ7TvuK7wjajJtcWnFaPdyBQ==", null, true, "e781747e-ffef-4023-bb8a-9bbc490ed516", false, "next.tmz.mit@gmail.com" });
+                values: new object[] { 1, 0, null, "acd27541-6bb2-489b-a222-a7735baa45a4", "next.tmz.mit@gmail.com", true, "Artur", "Sodolskyi", true, null, "NEXT.TMZ.MIT@GMAIL.COM", "NEXT.TMZ.MIT@GMAIL.COM", "AQAAAAIAAYagAAAAEFWuz0ahOSyNfT/+DoYopWYC/XnakbF7lcnEuqissSMrKssHlFZOm1Z9QGwNJQM76w==", null, true, "008a6908-4be3-4eae-8bb1-b376cbec0553", false, "next.tmz.mit@gmail.com" });
 
             migrationBuilder.InsertData(
                 schema: "users",

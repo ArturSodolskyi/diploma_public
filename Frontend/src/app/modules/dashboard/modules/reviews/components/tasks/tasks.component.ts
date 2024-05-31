@@ -18,7 +18,6 @@ import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss'],
   standalone: true,
   imports: [MatExpansionModule, NgFor, MatSliderModule, FormsModule, MatCardModule]
 })

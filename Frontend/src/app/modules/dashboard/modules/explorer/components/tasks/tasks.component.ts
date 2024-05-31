@@ -129,7 +129,6 @@ export class TasksComponent implements OnInit {
           item.id = x;
           item.name = value;
           this.clearSelections();
-          this.elements.sort();
         });
       return;
     }
@@ -145,13 +144,11 @@ export class TasksComponent implements OnInit {
         .subscribe(_ => {
           item.name = value;
           this.clearSelections();
-          this.elements.sort();
         });
       return;
     }
 
     this.clearSelections();
-    this.elements.sort();
   }
 
   protected updateText(value: string, item: TaskViewModel): void {
@@ -165,7 +162,6 @@ export class TasksComponent implements OnInit {
       .subscribe(_ => {
         item.text = value;
         this.clearSelections();
-        this.elements.sort();
       });
     return;
   }

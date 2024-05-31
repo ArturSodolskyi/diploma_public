@@ -12,7 +12,6 @@ import { CompaniesService } from 'src/app/modules/shared/services/web-api/dashbo
 @Component({
   selector: 'app-invitations',
   templateUrl: './invitations.component.html',
-  styleUrls: ['./invitations.component.scss'],
   standalone: true,
   imports: [NgIf, MatListModule, NgFor, MatButtonModule, MatIconModule]
 })

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Module.Explorer.Contracts.Jobs.Queries.GetCompanyId;
 using Module.Explorer.Persistence;
 
@@ -14,7 +15,7 @@ namespace Module.Explorer.Application.Jobs.Queries.GetCompanyId
 
         public async Task<int> Handle(GetCompanyIdQuery request, CancellationToken cancellationToken)
         {
-            var job = _dbContext.Jobs.FirstOrDefault(x => x.Id == request.JobId);
+            var job = await _dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == request.JobId, cancellationToken);
             return job is null ? 0 : job.CompanyId;
         }
     }

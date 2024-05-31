@@ -44,7 +44,7 @@ namespace Module.Reviews.Application.Reviews.Queries.GetUserReviews
                 return null;
             }
 
-            return review.ReviewTasks
+            return review.ReviewTasks!
                 .Select(y => y.Value)
                 .Average();
         }

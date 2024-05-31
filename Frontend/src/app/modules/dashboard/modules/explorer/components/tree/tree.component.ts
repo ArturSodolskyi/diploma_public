@@ -378,7 +378,8 @@ export class TreeComponent implements OnInit {
   private updateDataSource(): void {
     this.flatNodeMap.clear();
     //TODO: add order by type and then name
-    this.dataSource.data = this.dataSource.data;
+    let data = this.dataSource.data;
+    this.dataSource.data = data;
   }
 
   private getParentChildren(node: FlatNode): Node[] | undefined {

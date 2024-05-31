@@ -32,8 +32,8 @@ namespace Module.Users.Application.CurrentUser.Queries.GetUser
             return new UserViewModel
             {
                 Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
+                FirstName = user.FirstName!,
+                LastName = user.LastName!,
                 Role = await GetRoleAsync(user.Id),
                 CompanyId = user.CompanyId,
                 CompanyRole = await GetCompanyRoleAsync(user.Id, user.CompanyId)

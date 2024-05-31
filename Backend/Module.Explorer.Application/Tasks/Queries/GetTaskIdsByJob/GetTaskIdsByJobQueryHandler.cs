@@ -17,8 +17,8 @@ namespace Module.Explorer.Application.Tasks.Queries.GetTaskIdsByJob
         {
             return await _dbContext.Tasks
                 .Include(x => x.Competence)
-                .Include(x => x.Competence.Job)
-                .Where(x => x.Competence.Job.Id == request.JobId)
+                .Include(x => x.Competence!.Job)
+                .Where(x => x.Competence!.Job!.Id == request.JobId)
                 .Select(x => x.Id)
                 .ToListAsync(cancellationToken);
         }

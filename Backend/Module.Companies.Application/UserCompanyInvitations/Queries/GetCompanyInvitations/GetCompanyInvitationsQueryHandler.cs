@@ -25,7 +25,7 @@ namespace Module.Companies.Application.UserCompanyInvitations.Queries.GetCompany
                 .Select(x => new CompanyInvitationViewModel
                 {
                     CompanyId = x.CompanyId,
-                    CompanyName = x.Company.Name
+                    CompanyName = x.Company!.Name
                 })
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);

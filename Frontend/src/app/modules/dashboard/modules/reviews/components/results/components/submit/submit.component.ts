@@ -11,7 +11,6 @@ import { DataService } from '../../../../services/data.service';
 @Component({
   selector: 'app-submit',
   templateUrl: './submit.component.html',
-  styleUrls: ['./submit.component.scss'],
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule]
 })

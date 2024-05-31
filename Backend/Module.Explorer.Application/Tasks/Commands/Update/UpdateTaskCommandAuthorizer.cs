@@ -34,7 +34,7 @@ namespace Module.Explorer.Application.Tasks.Commands.Update
 
             var entity = await _dbContext.Tasks
                 .Include(x => x.Competence)
-                .Include(x => x.Competence.Job)
+                .Include(x => x.Competence!.Job)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (entity is null)
@@ -43,7 +43,7 @@ namespace Module.Explorer.Application.Tasks.Commands.Update
             }
             var isAdministrator = await _mediator.Send(new IsInCompanyRoleQuery
             {
-                CompanyId = entity.Competence.Job.CompanyId,
+                CompanyId = entity.Competence!.Job!.CompanyId,
                 UserId = _userAccessor.UserId,
                 Role = CompanyRoleEnum.Administrator
             }, cancellationToken);

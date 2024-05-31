@@ -8,7 +8,6 @@ import { USER_ROLE_KEY_VALUE_MAP, UserRole } from '../../../enums/user-role.enum
   standalone: true,
   imports: [CommonModule, MatSelectModule],
   templateUrl: './user-role-field.component.html',
-  styleUrls: ['./user-role-field.component.scss']
 })
 export class UserRoleFieldComponent {
   protected roles: KeyValue<UserRole, string>[] = [

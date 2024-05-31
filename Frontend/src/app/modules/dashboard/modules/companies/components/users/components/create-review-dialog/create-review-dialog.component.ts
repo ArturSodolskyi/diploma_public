@@ -20,7 +20,6 @@ import { DataService } from '../../../../services/data.service';
 @Component({
   selector: 'app-create-review-dialog',
   templateUrl: './create-review-dialog.component.html',
-  styleUrls: ['./create-review-dialog.component.scss'],
   standalone: true,
   imports: [MatDialogModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, NgFor, MatOptionModule, MatButtonModule, AsyncPipe]
 })

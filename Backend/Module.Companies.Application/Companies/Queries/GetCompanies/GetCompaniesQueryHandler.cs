@@ -26,7 +26,7 @@ namespace Module.Companies.Application.Companies.Queries.GetCompanies
                 .Select(x => new CompanyViewModel
                 {
                     Id = x.CompanyId,
-                    Name = x.Company.Name,
+                    Name = x.Company!.Name,
                     IsCreatedByCurrentUser = x.Company.UserId == _userAccessor.UserId,
                     Role = (CompanyRoleEnum)x.RoleId
                 })

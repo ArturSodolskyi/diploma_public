@@ -166,7 +166,6 @@ export class CompetenciesComponent implements OnInit {
           item.id = x;
           item.name = value;
           this.clearSelections();
-          this.elements.sort();
         });
       return;
     }
@@ -181,13 +180,11 @@ export class CompetenciesComponent implements OnInit {
         .subscribe(_ => {
           item.name = value;
           this.clearSelections();
-          this.elements.sort();
         });
       return;
     }
 
     this.clearSelections();
-    this.elements.sort();
   }
 
 

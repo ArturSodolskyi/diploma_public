@@ -10,7 +10,6 @@ import { DataService } from '../../../../services/data.service';
 @Component({
   selector: 'app-invite-user-dialog',
   templateUrl: './invite-user-dialog.component.html',
-  styleUrls: ['./invite-user-dialog.component.scss'],
   standalone: true,
   imports: [MatDialogModule, FormsModule, ReactiveFormsModule, EmailFieldComponent, MatButtonModule]
 })

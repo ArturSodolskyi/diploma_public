@@ -9,7 +9,6 @@ import { DataService } from '../../../../services/data.service';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
-  styleUrls: ['./view.component.scss'],
   standalone: true,
   imports: [NgIf, DecimalPipe]
 })

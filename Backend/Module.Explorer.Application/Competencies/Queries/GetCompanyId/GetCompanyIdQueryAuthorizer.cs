@@ -39,7 +39,7 @@ namespace Module.Explorer.Application.Competencies.Queries.GetCompanyId
                 throw new NotFoundException(nameof(Competence), request.CompetenceId);
             }
 
-            var companyId = competence.Job.CompanyId;
+            var companyId = competence!.Job!.CompanyId;
             var exists = await _mediator.Send(new ExistsQuery
             {
                 CompanyId = companyId,

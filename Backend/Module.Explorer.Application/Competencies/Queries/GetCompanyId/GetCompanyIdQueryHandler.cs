@@ -18,7 +18,7 @@ namespace Module.Explorer.Application.Competencies.Queries.GetCompanyId
             var competence = await _dbContext.Competencies
                 .Include(x => x.Job)
                 .FirstOrDefaultAsync(x => x.Id == request.CompetenceId, cancellationToken);
-            return competence is null ? 0 : competence.Job.CompanyId;
+            return competence is null ? 0 : competence.Job!.CompanyId;
         }
     }
 }

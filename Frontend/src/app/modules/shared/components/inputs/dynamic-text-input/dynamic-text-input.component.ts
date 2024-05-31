@@ -4,7 +4,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-dynamic-text-input',
   templateUrl: './dynamic-text-input.component.html',
-  styleUrls: ['./dynamic-text-input.component.scss'],
   standalone: true,
   imports: [CommonModule]
 })

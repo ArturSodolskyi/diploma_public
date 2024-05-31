@@ -20,8 +20,8 @@ namespace Module.Users.Application.Users.Queries.GetUsers
                 .Select(x => new UserViewModel
                 {
                     Id = x.Id,
-                    FirstName = x.FirstName,
-                    LastName = x.LastName,
+                    FirstName = x.FirstName!,
+                    LastName = x.LastName!,
                     Email = x.Email!,
                     Role = (RoleEnum)_dbContext.UsersRoles.First(y => y.UserId == x.Id).RoleId
                 })

@@ -11,7 +11,6 @@ import { UserService } from 'src/app/modules/shared/services/web-api/domain/user
 @Component({
   selector: 'app-account-button',
   templateUrl: './account-button.component.html',
-  styleUrls: ['./account-button.component.scss'],
   standalone: true,
   imports: [MatButtonModule, MatTooltipModule, MatMenuModule, MatIconModule]
 })

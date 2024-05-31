@@ -8,7 +8,6 @@ import { COMPANY_ROLE_KEY_VALUE_MAP, CompanyRole } from '../../../enums/company-
   standalone: true,
   imports: [CommonModule, MatSelectModule],
   templateUrl: './company-role-field.component.html',
-  styleUrls: ['./company-role-field.component.scss']
 })
 export class CompanyRoleFieldComponent implements OnInit {
   protected roles: KeyValue<CompanyRole, string>[] = [];

@@ -1,0 +1,49 @@
+<mat-accordion multi>
+  <mat-expansion-panel *ngFor="let element of elements">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="d-flex justify-content-between" (keydown.space)="$event.stopPropagation()"
+        (keydown.enter)="$event.stopPropagation()">
+        <app-dynamic-text-input [value]="element.name"
+          [showInput]="addSelection.isSelected(element) || editSelection.isSelected(element)"
+          (onEnter)="applyChanges($event, element)" (onFocusout)="applyChanges($event, element)">
+        </app-dynamic-text-input>
+        <div *ngIf="permissionService.canCRUD()" class="d-flex">
+          <button mat-button (click)="$event.stopPropagation();edit(element);">
+            <mat-icon inline>create</mat-icon>
+          </button>
+          <button mat-button (click)="$event.stopPropagation();openDeleteConfirmationDialog(element);">
+            <mat-icon inline>delete_outline</mat-icon>
+          </button>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container [ngTemplateOutlet]="permissionService.canCRUD() ? editableText : text"
+      [ngTemplateOutletContext]="{element:element}">
+    </ng-container>
+  </mat-expansion-panel>
+  <!-- TODO: remove button rounding on borders -->
+  <button *ngIf="permissionService.canCRUD()" class="w-100" mat-raised-button (click)="add()">
+    Add new task
+  </button>
+</mat-accordion>
+
+<ng-template #editableText let-element='element'>
+  <!-- TODO: create a separate component? -->
+  <mat-form-field class="w-100" appearance="fill">
+    <textarea #textarea [value]="element.text" matInput></textarea>
+  </mat-form-field>
+  <br>
+  <br>
+  <div *ngIf="textarea.value !== element.text" class="d-flex justify-content-end">
+    <button mat-raised-button class="me-2" (click)="updateText(textarea.value, element)">
+      Save
+    </button>
+    <button mat-raised-button (click)="textarea.value = element.text">
+      Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #text let-element='element'>
+  <span>{{element.text}}</span>
+</ng-template>

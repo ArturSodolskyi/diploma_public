@@ -1,0 +1,26 @@
+//TODO: create a shared class
+:host {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    ::ng-deep button.mdc-button {
+        min-width: 0;
+    }
+
+    ::ng-deep mat-icon.mat-icon {
+        margin-right: 0;
+    }
+    
+
+    .body {
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .selected {
+        background: black;
+    }
+}

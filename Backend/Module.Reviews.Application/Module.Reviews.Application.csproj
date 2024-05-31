@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Module.Reviews.Contracts\Module.Reviews.Contracts.csproj" />
+    <ProjectReference Include="..\Module.Reviews.Domain\Module.Reviews.Domain.csproj" />
+    <ProjectReference Include="..\Module.Reviews.Persistence\Module.Reviews.Persistence.csproj" />
+    <ProjectReference Include="..\Module.Users.Contracts\Module.Users.Contracts.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+<ng-container *ngIf="!isInProcess && result; else inProcess">
+    <h2>
+        <b>Coverage: </b>
+        <span>{{result.coverage | number:'0.0-2'}}%</span>
+    </h2>
+    <h2>Feedback</h2>
+    <p>{{result.comment}}</p>
+</ng-container>
+
+<ng-template #inProcess>
+    <h2 class="text-center">Review is in process</h2>
+</ng-template>

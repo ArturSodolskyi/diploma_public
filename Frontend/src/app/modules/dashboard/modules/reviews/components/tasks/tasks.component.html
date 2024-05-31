@@ -1,0 +1,20 @@
+<mat-accordion multi>
+    <mat-expansion-panel *ngFor="let element of elements">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="d-flex justify-content-between">
+                {{element.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                <span class="me-4">{{input.value}}</span>
+                <mat-slider [disabled]="disableSliders" (click)="$event.stopPropagation();" min="0" max="100" step="1">
+                    <input #input [(ngModel)]="element.value" matSliderThumb (input)="updateValue$.next(element)">
+                </mat-slider>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <mat-card-content>
+                {{element.text}}
+            </mat-card-content>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>

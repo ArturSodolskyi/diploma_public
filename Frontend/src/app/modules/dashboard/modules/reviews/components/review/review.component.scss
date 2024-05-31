@@ -1,0 +1,30 @@
+:host {
+    ::ng-deep mat-horizontal-stepper {
+        height: 100%;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-wrapper {
+        height: 100%;
+    }
+
+    ::ng-deep .mat-horizontal-content-container {
+        height: 100%;
+        padding: 0;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-content {
+        height: 100%;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-header-container {
+        justify-content: center;
+    }
+
+    ::ng-deep .mat-stepper-horizontal-line {
+        flex: none;
+    }
+
+    ::ng-deep mat-panel-description {
+        place-content: flex-end;
+    }
+}

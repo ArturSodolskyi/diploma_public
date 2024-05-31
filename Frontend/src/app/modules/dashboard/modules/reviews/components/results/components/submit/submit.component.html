@@ -1,0 +1,11 @@
+<mat-form-field class="w-100" appearance="fill">
+    <mat-label>Feedback</mat-label>
+    <textarea matInput [formControl]="comment"></textarea>
+</mat-form-field>
+<br>
+<br>
+<div class="d-flex justify-content-end">
+    <button mat-raised-button [disabled]="comment.invalid" (click)="submit()">
+        Submit
+    </button>
+</div>

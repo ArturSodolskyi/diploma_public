@@ -1,0 +1,53 @@
+<div class="actions">
+  <b>Companies:</b>
+  <div class="d-flex">
+    <button mat-button [disabled]="selection.isEmpty() || primarySelection.isSelected(this.selected!)"
+      (click)="selectPrimary()">
+      <mat-icon inline>done</mat-icon>
+    </button>
+    <button mat-button (click)="add()">
+      <mat-icon inline>add</mat-icon>
+    </button>
+    <button mat-button [disabled]="!selected?.canCRUD" (click)="edit()">
+      <mat-icon inline>create</mat-icon>
+    </button>
+    <button mat-button [disabled]="!selected?.canCRUD" (click)="openDeleteConfirmationDialog()">
+      <mat-icon inline>delete_outline</mat-icon>
+    </button>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<mat-selection-list class="body" [multiple]="false">
+  <mat-accordion *ngFor="let item of elements$ | async" multi>
+    <mat-expansion-panel *ngIf="item.elements.length > 0" expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.header}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!-- TODO: strange behavior with routerLink, [class.selected] works after second click -->
+      <!-- TODO: add direct link access check because right now it's possible to open any company by id in the url -->
+      <!-- TODO: isCreatedByCurrentUser check is not valid, because we have CompanyEditors -->
+      <mat-list-item *ngFor="let element of item.elements" [class.selected]="selection.isSelected(element)"
+        [routerLink]="element.canOpen ? [element.id] : null" (click)="select(element)">
+        <div class="d-flex justify-content-between">
+          <app-dynamic-text-input [value]="element.name"
+            [showInput]="addSelection.isSelected(element) || editSelection.isSelected(element)"
+            (onEnter)="applyChanges($event, element)" (onFocusout)="applyChanges($event, element)">
+          </app-dynamic-text-input>
+          <mat-icon *ngIf="primarySelection.isSelected(element)">
+            done
+          </mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      Invitations:
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-invitations></app-invitations>
+    </ng-template>
+  </mat-expansion-panel>
+</mat-selection-list>

@@ -1,0 +1,15 @@
+<form [formGroup]="form" class="d-flex flex-column">
+  <app-email-field [control]="form.controls.email"></app-email-field>
+  <app-password-field [control]="form.controls.password"></app-password-field>
+  <mat-error *ngIf="form.hasError('invalidCredentials')">
+    Invalid email or password
+  </mat-error>
+  <button mat-raised-button [disabled]="form.invalid" (click)="login()">
+    Login
+  </button>
+  <br>
+  <p class="text-center">
+    Don't have an account?
+    <span><a [routerLink]="'/' + AUTH_ROUTES_MAP.Registration">Registration</a></span>
+  </p>
+</form>

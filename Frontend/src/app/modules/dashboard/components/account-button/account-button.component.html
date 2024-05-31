@@ -1,0 +1,14 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Account" matTooltipPosition="after">
+  <mat-icon>perm_identity</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="deleteAccount()">
+    <mat-icon>delete_forever</mat-icon>
+    <span>Delete Account</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

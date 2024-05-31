@@ -1,0 +1,9 @@
+<div class="actions">
+  <b>Competencies:</b>
+</div>
+<mat-divider></mat-divider>
+<mat-list class="body">
+  <mat-list-item *ngFor="let element of elements" [routerLink]="[element.id]" routerLinkActive="selected">
+    {{element.name}}
+  </mat-list-item>
+</mat-list>

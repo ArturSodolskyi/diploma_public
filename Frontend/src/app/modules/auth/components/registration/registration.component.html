@@ -1,0 +1,16 @@
+<form [formGroup]="form" class="d-flex flex-column">
+	<app-text-field [control]="form.controls.firstName" [title]="'First Name'"></app-text-field>
+	<app-text-field [control]="form.controls.lastName" [title]="'Last Name'"></app-text-field>
+	<app-email-field [control]="form.controls.email"></app-email-field>
+	<app-password-field [control]="form.controls.password"></app-password-field>
+	<app-password-field [control]="form.controls.confirmPassword" [title]="'Confirm Password'">
+	</app-password-field>
+	<button mat-raised-button [disabled]="form.invalid" (click)="register()">
+		Register
+	</button>
+	<br>
+	<p class="text-center">
+		Already have an account?
+		<span><a [routerLink]="'/' + AUTH_ROUTES_MAP.Login">Login</a></span>
+	</p>
+</form>

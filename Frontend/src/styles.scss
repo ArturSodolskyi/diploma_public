@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Workaround for https://github.com/angular/material2/issues/4580.
+mat-form-field .mat-form-field {
+  &-underline {
+    position: relative;
+    bottom: auto;
+  }
+
+  &-subscript-wrapper {
+    position: static;
+  }
+}
+
+.auth-component {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: 300px;
+  }
+}
+
+// TODO: name?
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.5rem;
+}

@@ -1,0 +1,87 @@
+<div class="actions">
+  <mat-form-field class="filter-field">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)">
+  </mat-form-field>
+  <button class="me-2" mat-raised-button (click)="openInviteUserDialog()">
+    Invite user
+  </button>
+</div>
+<div class="body">
+  <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.firstName}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.lastName}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.email}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container [ngTemplateOutlet]="element.canChangeRole ? roleSelect : role"
+          [ngTemplateOutletContext]="{element:element}">
+        </ng-container>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="d-flex">
+          <button mat-button [disabled]="element.id == currentUserId"
+            (click)="$event.stopPropagation();openCreateReviewDialog(element.id)">
+            <mat-icon inline>poll</mat-icon>
+          </button>
+          <button mat-button [disabled]="!element.canDelete"
+            (click)="$event.stopPropagation();openDeleteConfirmationDialog(element.id)">
+            <mat-icon inline>delete_outline</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button
+          (click)="$event.stopPropagation();expandedElement = expandedElement === element ? null : element">
+          <mat-icon>
+            {{expandedElement === element ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+          </mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="expanded">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+        <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <app-reviews *ngIf="expandedElement === element" [userId]="element.id"></app-reviews>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="expandedElement = expandedElement === row ? null : row">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expanded']" class="expanded"></tr>
+  </table>
+</div>
+<mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+
+<ng-template #roleSelect let-element='element'>
+  <app-company-role-field [(value)]="element.role" (onSelectionChange)="updateRole(element)">
+  </app-company-role-field>
+</ng-template>
+
+<ng-template #role let-element='element'>
+  <span>{{element.role.value}}</span>
+</ng-template>

@@ -1,0 +1,59 @@
+<div class="actions">
+  <mat-form-field class="filter-field">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)">
+  </mat-form-field>
+</div>
+<div class="body">
+  <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.firstName}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.lastName}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.email}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container [ngTemplateOutlet]="element.canDelete ? roleSelect : role"
+          [ngTemplateOutletContext]="{element:element}">
+        </ng-container>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="d-flex">
+          <button mat-button [disabled]="!element.canDelete" (click)="openDeleteConfirmationDialog(element.id)">
+            <mat-icon inline>delete_outline</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+</div>
+<mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+
+<ng-template #roleSelect let-element='element'>
+  <app-user-role-field [(value)]="element.role" (onSelectionChange)="updateRole(element)">
+  </app-user-role-field>
+</ng-template>
+
+<ng-template #role let-element='element'>
+  <span>{{element.role.value}}</span>
+</ng-template>

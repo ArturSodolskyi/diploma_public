@@ -1,0 +1,11 @@
+<ng-container [ngTemplateOutlet]="showInput ? textInput : text" [ngTemplateOutletContext]="{value:value}">
+</ng-container>
+
+<ng-template #textInput let-value='value'>
+  <input #input matInput type="text" [value]="value" appAutofocus (keydown.enter)="onEnter.emit(input.value)"
+    (focusout)="onFocusout.emit(input.value)">
+</ng-template>
+
+<ng-template #text let-value='value'>
+  <span>{{value}}</span>
+</ng-template>

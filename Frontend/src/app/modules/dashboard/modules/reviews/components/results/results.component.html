@@ -1,0 +1,5 @@
+<app-submit *ngIf="showSubmit; else view"></app-submit>
+
+<ng-template #view>
+    <app-view></app-view>
+</ng-template>

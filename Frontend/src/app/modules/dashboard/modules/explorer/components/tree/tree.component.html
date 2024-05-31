@@ -1,0 +1,58 @@
+<div class="actions">
+  <b>Explorer:</b>
+  <div *ngIf="companyId" class="d-flex">
+    <ng-container *ngIf="permissionService.canCRUD()">
+      <button mat-button [disabled]="selected?.type === NodeType.Job" [matMenuTriggerFor]="addMenu">
+        <mat-icon inline>add</mat-icon>
+      </button>
+      <button mat-button (click)="edit()">
+        <mat-icon inline>create</mat-icon>
+      </button>
+      <button mat-button (click)="openDeleteConfirmationDialog()">
+        <mat-icon inline>delete_outline</mat-icon>
+      </button>
+    </ng-container>
+    <button mat-button (click)="treeControl.collapseAll()">
+      <mat-icon inline>indeterminate_check_box</mat-icon>
+    </button>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<!-- TODO: deselect if we have a lot of elements, it's impossible to deselect -->
+<div class="body" (click)="deselect()" [routerLink]="'/' + ROUTES_MAP.Explorer">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- TODO: add check if node has an id for routerLink, because it opens newly created jobs wihout name -->
+    <mat-tree-node class="pe-2" [class.selected]="selection.isSelected(node)" *matTreeNodeDef="let node"
+      matTreeNodePadding matTreeNodeToggle [routerLink]="node.type === NodeType.Job ? [node.id] : null"
+      (click)="select(node)">
+      <ng-container [ngTemplateOutlet]="node.expandable ? nodeToggleButton : nodeToggleStub"
+        [ngTemplateOutletContext]="{node:node}">
+      </ng-container>
+      <mat-icon *ngIf="node.icon" class="me-2 node-icon">
+        {{node.icon}}
+      </mat-icon>
+      <app-dynamic-text-input [value]="node.name" [showInput]="node.editable || node.new"
+        (onEnter)="applyChanges($event, node)" (onFocusout)="applyChanges($event, node)">
+      </app-dynamic-text-input>
+    </mat-tree-node>
+  </mat-tree>
+</div>
+
+<mat-menu #addMenu="matMenu">
+  <button *ngFor="let item of addMenuItems" mat-menu-item (click)="add(item.type)">
+    <mat-icon>{{item.icon}}</mat-icon>
+    <span>{{item.name}}</span>
+  </button>
+</mat-menu>
+
+<ng-template #nodeToggleButton let-node='node'>
+  <button mat-button (click)="$event.stopPropagation();treeControl.toggle(node);">
+    <mat-icon>
+      {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+    </mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #nodeToggleStub let-node='node'>
+  <button mat-button disabled></button>
+</ng-template>

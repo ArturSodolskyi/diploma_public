@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Create a review</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" class="d-flex flex-column">
+    <mat-form-field appearance="fill">
+      <mat-label>Job</mat-label>
+      <input matInput formControlName="jobFilter" [matAutocomplete]="jobAuto" (change)="onJobFilterChange()">
+      <mat-autocomplete autoActiveFirstOption #jobAuto="matAutocomplete">
+        <mat-option *ngFor="let option of jobFilterOptions$ | async" [value]="option.name" [title]="option.name"
+          (click)="job.patchValue(option)">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Reviewer</mat-label>
+      <input matInput formControlName="reviewerFilter" [matAutocomplete]="reviewerAuto"
+        (change)="onReviewerFilterChange()">
+      <mat-autocomplete autoActiveFirstOption #reviewerAuto="matAutocomplete">
+        <mat-option *ngFor="let option of reviewerFilterOptions$ | async" [value]="option.email"
+          [title]="option.firstName + ' ' + option.lastName + ' ' + option.email" (click)="reviewer.patchValue(option)">
+          {{option.firstName}}
+          {{option.lastName}}
+          {{option.email}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-raised-button [disabled]="form.invalid" (click)="save()">Save</button>
+</div>

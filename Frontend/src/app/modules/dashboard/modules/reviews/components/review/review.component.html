@@ -1,0 +1,30 @@
+<mat-horizontal-stepper>
+    <mat-step completed="false" state="info">
+        <ng-template matStepLabel>Details</ng-template>
+        <ng-template matStepContent>
+            <mat-drawer-container>
+                <app-details></app-details>
+            </mat-drawer-container>
+        </ng-template>
+    </mat-step>
+    <mat-step completed="false" state="assessment">
+        <ng-template matStepLabel>Evaluation</ng-template>
+        <ng-template matStepContent>
+            <app-base-drawer [enableClosingOnLinkClick]="false" [position]="'end'">
+                <app-competencies></app-competencies>
+            </app-base-drawer>
+        </ng-template>
+    </mat-step>
+    <mat-step completed="false" state="feedback">
+        <ng-template matStepLabel>Results</ng-template>
+        <ng-template matStepContent>
+            <mat-drawer-container>
+                <app-results></app-results>
+            </mat-drawer-container>
+        </ng-template>
+    </mat-step>
+
+    <ng-template matStepperIcon="edit">
+        <mat-icon>fiber_manual_record</mat-icon>
+    </ng-template>
+</mat-horizontal-stepper>

@@ -1,0 +1,7 @@
+<mat-form-field appearance="fill" subscriptSizing="dynamic" (click)="$event.stopPropagation()">
+  <mat-select [(value)]="value" (selectionChange)="handleSelectionChange($event)">
+    <mat-option *ngFor="let role of roles" [value]="role">
+      <span>{{role.value}}</span>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

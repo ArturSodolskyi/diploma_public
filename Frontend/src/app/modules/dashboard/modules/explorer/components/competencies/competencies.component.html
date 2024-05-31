@@ -1,0 +1,24 @@
+<div class="actions">
+  <b>Competencies:</b>
+  <div *ngIf="permissionService.canCRUD()" class="d-flex">
+    <button mat-button (click)="add()">
+      <mat-icon inline>add</mat-icon>
+    </button>
+    <button mat-button [disabled]="selection.isEmpty()" (click)="edit()">
+      <mat-icon inline>create</mat-icon>
+    </button>
+    <button mat-button [disabled]="selection.isEmpty()" (click)="openDeleteConfirmationDialog()">
+      <mat-icon inline>delete_outline</mat-icon>
+    </button>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<mat-list class="body">
+  <mat-list-item *ngFor="let element of elements" [class.selected]="selection.isSelected(element)"
+    [routerLink]="[element.id]" (click)="select(element)">
+    <app-dynamic-text-input [value]="element.name"
+      [showInput]="addSelection.isSelected(element) || editSelection.isSelected(element)"
+      (onEnter)="applyChanges($event, element)" (onFocusout)="applyChanges($event, element)">
+    </app-dynamic-text-input>
+  </mat-list-item>
+</mat-list>

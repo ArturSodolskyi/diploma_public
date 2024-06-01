@@ -23,7 +23,6 @@ namespace Module.Companies.Application.Companies.Commands.Delete
         public async Task Handle(DeleteCompanyCommand request, CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Companies
-                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (entity is null)
             {
@@ -39,13 +38,11 @@ namespace Module.Companies.Application.Companies.Commands.Delete
 
             var userCompanies = await _dbContext.UserCompanies
                 .Where(x => x.CompanyId == request.Id)
-                .AsNoTracking()
                 .ToArrayAsync(cancellationToken);
             _dbContext.UserCompanies.RemoveRange(userCompanies);
 
             var userCompanyInvitations = await _dbContext.UserCompanyInvitations
                 .Where(x => x.CompanyId == request.Id)
-                .AsNoTracking()
                 .ToArrayAsync(cancellationToken);
             _dbContext.UserCompanyInvitations.RemoveRange(userCompanyInvitations);
 

@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Module.Explorer.Contracts\Module.Explorer.Contracts.csproj" />
     <ProjectReference Include="..\Module.Explorer.Domain\Module.Explorer.Domain.csproj" />
     <ProjectReference Include="..\Module.Explorer.Persistence\Module.Explorer.Persistence.csproj" />
+    <ProjectReference Include="..\Module.Reviews.Contracts\Module.Reviews.Contracts.csproj" />
     <ProjectReference Include="..\Module.Users.Contracts\Module.Users.Contracts.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>

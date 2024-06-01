@@ -23,7 +23,6 @@ namespace Module.Companies.Application.UserCompanyInvitations.Commands.RespondIn
         public async Task Handle(RespondInvitationCommand request, CancellationToken cancellationToken)
         {
             var invitation = await _dbContext.UserCompanyInvitations
-                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Email == _userAccessor.Email
                     && x.CompanyId == request.CompanyId, cancellationToken);
             if (invitation is null)

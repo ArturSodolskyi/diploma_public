@@ -21,7 +21,6 @@ namespace Module.Companies.Application.UserCompanies.Commands.DeleteUserCompany
         public async Task Handle(DeleteUserCompanyCommand request, CancellationToken cancellationToken)
         {
             var userCompany = await _dbContext.UserCompanies
-                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.UserId == request.UserId
                     && x.CompanyId == request.CompanyId, cancellationToken);
             if (userCompany is null)

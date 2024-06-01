@@ -31,8 +31,8 @@ export class LoginComponent {
 
   private createForm(): void {
     this.form = this.fb.group({
-      email: this.fb.nonNullable.control<string>('next.tmz.mit@gmail.com'),
-      password: this.fb.nonNullable.control<string>('Test12345!')
+      email: this.fb.nonNullable.control<string>(''),
+      password: this.fb.nonNullable.control<string>('')
     });
   }
 

@@ -189,18 +189,6 @@ namespace Module.Users.Persistence.Migrations
                     { 2, null, "Administrator", "ADMINISTRATOR" }
                 });
 
-            migrationBuilder.InsertData(
-                schema: "users",
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "CompanyId", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1, 0, null, "acd27541-6bb2-489b-a222-a7735baa45a4", "next.tmz.mit@gmail.com", true, "Artur", "Sodolskyi", true, null, "NEXT.TMZ.MIT@GMAIL.COM", "NEXT.TMZ.MIT@GMAIL.COM", "AQAAAAIAAYagAAAAEFWuz0ahOSyNfT/+DoYopWYC/XnakbF7lcnEuqissSMrKssHlFZOm1Z9QGwNJQM76w==", null, true, "008a6908-4be3-4eae-8bb1-b376cbec0553", false, "next.tmz.mit@gmail.com" });
-
-            migrationBuilder.InsertData(
-                schema: "users",
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[] { 2, 1 });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 schema: "users",

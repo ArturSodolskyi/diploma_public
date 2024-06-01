@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Module.Users.Domain;
-using Module.Users.Persistence.Common.Extensions;
 
 namespace Module.Users.Persistence
 {
@@ -16,7 +15,6 @@ namespace Module.Users.Persistence
         {
             builder.HasDefaultSchema("users");
             builder.ApplyConfigurationsFromAssembly(typeof(UsersDbContext).Assembly);
-            builder.SeedAdmins();
             base.OnModelCreating(builder);
         }
     }

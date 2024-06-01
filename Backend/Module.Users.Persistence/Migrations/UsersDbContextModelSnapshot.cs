@@ -105,13 +105,6 @@ namespace Module.Users.Persistence.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", "users");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 2
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
@@ -208,26 +201,6 @@ namespace Module.Users.Persistence.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", "users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "acd27541-6bb2-489b-a222-a7735baa45a4",
-                            Email = "next.tmz.mit@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Artur",
-                            LastName = "Sodolskyi",
-                            LockoutEnabled = true,
-                            NormalizedEmail = "NEXT.TMZ.MIT@GMAIL.COM",
-                            NormalizedUserName = "NEXT.TMZ.MIT@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFWuz0ahOSyNfT/+DoYopWYC/XnakbF7lcnEuqissSMrKssHlFZOm1Z9QGwNJQM76w==",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "008a6908-4be3-4eae-8bb1-b376cbec0553",
-                            TwoFactorEnabled = false,
-                            UserName = "next.tmz.mit@gmail.com"
-                        });
                 });
 
             modelBuilder.Entity("Module.Users.Domain.UserRole", b =>

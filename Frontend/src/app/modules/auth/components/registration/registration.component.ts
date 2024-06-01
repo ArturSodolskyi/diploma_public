@@ -34,11 +34,11 @@ export class RegistrationComponent {
 
   private createForm(): void {
     this.form = this.fb.group({
-      firstName: this.fb.nonNullable.control<string>('Artur'),
-      lastName: this.fb.nonNullable.control<string>('Sodolskyi'),
-      email: this.fb.nonNullable.control<string>('next.tmz.mit@gmail.com'),
-      password: this.fb.nonNullable.control<string>('Test12345!'),
-      confirmPassword: this.fb.nonNullable.control<string>('Test12345!')
+      firstName: this.fb.nonNullable.control<string>(''),
+      lastName: this.fb.nonNullable.control<string>(''),
+      email: this.fb.nonNullable.control<string>(''),
+      password: this.fb.nonNullable.control<string>(''),
+      confirmPassword: this.fb.nonNullable.control<string>('')
     }, {
       validator: confirmPasswordValidator('password', 'confirmPassword')
     });
